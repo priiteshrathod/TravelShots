@@ -1,0 +1,43 @@
+<% layout('layouts/boilerplate') %> 
+
+    <div class="row">
+        <h1 class="text-center">Edit Campground</h1>
+        <div class="col-6 offset-3">
+            <form action="/campgrounds/<%= cg._id %>?_method=PUT" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" id="title" name="campground[title]" value="<%= cg.title %> " required>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="location">Location</label>
+                    <input class="form-control" type="text" id="location" name="campground[location]" value="<%= cg.location %> " required>
+                </div>
+
+                <div class="mb-3">
+                    <label for="image" class="form-label">Add more Images</label>
+                    <input class="form-control" type="file" id="image" name="image" multiple>
+                </div>
+
+                <div class="mb-3">
+                    <label for="price" class="form-label">Campground Price</label>
+                <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input type="text" id="price" class="form-control" placeholder="0.00" name="campground[price]" value="<%= cg.price %> " requiredaria-label="Amount (to the nearest dollar)">
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="description">Description</label>
+                    <textarea class="form-control" type="text" id="description" name="campground[description]" required><%= cg.description %>  </textarea>
+                </div>
+
+                <div class="mb-3">
+                    <button class="btn btn-success">Update Campground</button>
+                </div>
+
+                <a href="/campgrounds/<%= cg._id %> ">Back to Campground</a>
+            </form>
+            
+        </div>
+    </div>
